@@ -1,0 +1,13 @@
+{
+  "name": "y-websocket-railway",
+  "version": "1.0.0",
+  "description": "Servidor y-websocket para colaboración en tiempo real",
+  "main": "index.js",
+  "scripts": {
+    "start": "y-websocket --port $PORT"
+  },
+  "dependencies": {
+    "y-websocket": "^1.4.5",
+    "yjs": "^13.5.43"
+  }
+}
