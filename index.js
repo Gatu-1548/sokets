@@ -1,9 +1,18 @@
-import { WebSocketServer } from 'y-websocket'
+import { setupWSConnection } from 'y-websocket/bin/utils.js';
+import * as http from 'http';
+import WebSocket from 'ws';
 
-// Railway te asigna el puerto en la variable de entorno PORT
-const port = process.env.PORT || 1234
+const port = process.env.PORT || 1234; // usa el puerto de Railway
 
-// Crear el servidor WebSocket
-const server = new WebSocketServer({ port })
+const server = http.createServer((_, res) => {
+  res.writeHead(200);
+  res.end('Servidor WebSocket corriendo');
+});
 
-console.log(`Servidor WebSocket de Yjs corriendo en puerto ${port}`)
+const wss = new WebSocket.Server({ server });
+
+wss.on('connection', setupWSConnection);
+
+server.listen(port, () => {
+  console.log(`Servidor WebSocket escuchando en el puerto ${port}`);
+});
