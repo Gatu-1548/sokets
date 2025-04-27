@@ -4,7 +4,7 @@
   "description": "Servidor y-websocket para colaboración en tiempo real",
   "main": "index.js",
   "scripts": {
-    "start": "y-websocket --port $PORT"
+    "start": "node index.js"
   },
   "dependencies": {
     "y-websocket": "^1.4.5",
